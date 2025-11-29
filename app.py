@@ -128,8 +128,8 @@ st.markdown("""
 # ----------------------------
 # GOOGLE GEMINI CONFIG
 # ----------------------------
-# !! IMPORTANT: Replace "AIzaSyAizA6rTV6tKr6uBT_-hFHb-8vSVdS8888" with your actual Gemini API key. 
-client = genai.Client(api_key="AIzaSyAizA6rTV6tKr6uBT_-hFHb-8vSVdS8888")
+# !! IMPORTANT: Replace "AIzaSyBYuTl7knQrJsFuT4uP_F6RgmB3EWLMZDc" with your actual Gemini API key. 
+client = genai.Client(api_key="AIzaSyBYuTl7knQrJsFuT4uP_F6RgmB3EWLMZDc")
 
 # ----------------------------
 # FIXED FUNCTION: Extract text from MULTIPLE PDFs

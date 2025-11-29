@@ -1,92 +1,95 @@
 📄 AI Resume Screening Agent
 
-An AI-powered Streamlit application that analyzes multiple resumes, compares them with a Job Description (JD), and ranks candidates based on match percentage using Google Gemini.
+An intelligent resume-screening system built with Streamlit and powered by Google Gemini.
+It analyzes multiple candidate resumes, compares them against a Job Description (JD), generates insights, ranks candidates by relevance, and produces hiring recommendations.
 
 ✨ Features
 
-Upload multiple PDFs
+Upload multiple PDF resumes at once
 
-Extract text using PyPDF2
+Extract resume text using PyPDF2
 
-Analyze resumes using Gemini API
+Intelligent comparison with JD using Google Gemini
 
-Match percentage + HIRE/AVERAGE/REJECT verdict
+Generates:
+Match percentage
+Summary of candidate
+Strengths & weaknesses
+Skill gaps
+Verdict (HIRE / AVERAGE / REJECT)
+Ranks candidates from best to worst
+Clean UI built with Streamlit
 
-Rank candidates by match score
+⚙️ Limitations
 
-Clean, simple UI layout
+Only supports PDF files
 
-🛠️ Setup & Installation
+Works best with text-based PDFs (non-scanned)
 
-1️⃣ Prerequisites
+Relies on API stability and internet connectivity
 
-Python 3.8+
+Output quality depends on JD clarity
 
-Google Gemini API Key
+🧩 Tech Stack
+Component	Used
+Frontend	Streamlit
+Backend	Python
+AI Model	Google Gemini
+PDF Parsing	PyPDF2
+Hosting	GitHub + Streamlit Cloud
+Config	python-dotenv
 
-2️⃣ Add Your Gemini API Key
+APIs Used
+
+Google Gemini API — Used for analyzing resumes, comparing them with the Job Description, generating summaries, skill gaps, match percentages, and hiring recommendations.
+
+
+🚀 Setup & Installation
+1️⃣ Clone the Repository
+git clone https://github.com/keerthii-sr/ai-resume-screener
+cd ai-resume-screener
+
+2️⃣ Install dependencies
+pip install -r requirements.txt
+
+3️⃣ Add Your Google Gemini API Key
 
 Create a .env file:
 
 GEMINI_API_KEY="YOUR_API_KEY_HERE"
 
-3️⃣ Install Dependencies
-
-Create a requirements.txt:
-
-streamlit==1.32.0
-PyPDF2
-python-dotenv==1.0.1
-google-genai
-
-
-Then install:
-
-pip install -r requirements.txt
-
-4️⃣ Run the Application
+4️⃣ Run the application
 streamlit run app.py
 
 
-App will open at:
-
+App opens at:
 http://localhost:8501
 
-⚙️ How to Use
+🎯 How to Use
 
-Paste Job Description in the text area
+Paste Job Description
 
 Upload one or more PDF resumes
 
-Click Analyze
+Click Analyze Resumes
 View:
 Ranking
 Match %
-Gemini-generated summary
+AI-generated summary
 Skill gaps
-Verdict
-Suggestions
+Hiring recommendation
 
-🧩 Tech Stack
-Component	Used
-Framework	Streamlit
-Language	Python
-AI Model	Google Gemini
-PDF Parsing	PyPDF2
-Config	dotenv
+🚧 Potential Improvements
 
-📁 Project Structure
-├── app.py
-├── README.md
-├── requirements.txt
-├── .env
+Support for scanned PDFs (OCR using Tesseract)
 
-📌 Notes
+Support for multiple file formats (DOCX, TXT)
 
-Do NOT upload your .env to GitHub.
+Advanced analytics dashboard
 
-Only PDF resumes supported.
+Downloadable report for each candidate
 
-Works best with text-based PDFs (not scans).
-# ai-resume-screener
-A smart AI-powered tool that analyzes and ranks multiple resumes against a Job Description (JD). It uses Google Gemini 2.0 Flash and Streamlit to find the best matching candidates, generate detailed resume insights, and calculate match percentages.
+ATS keyword extraction
+
+Cloud database for storing history
+
