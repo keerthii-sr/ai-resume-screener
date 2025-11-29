@@ -23,17 +23,17 @@ st.markdown("""
             font-size: 20px !important; 
         }
         
-        /* 💡 ADJUSTED FIX: Custom class for the Main Header (60px) */
+        /* 💡 NEW ADJUSTMENT: Custom class for the Main Header (48px) */
         .main-title {
-            font-size: 60px !important; /* REDUCED SIZE */
+            font-size: 48px !important; /* REDUCED SIZE */
             font-weight: bold;
             color: black !important;
             margin-bottom: 5px;
         }
 
-        /* 💡 ADJUSTED FIX: Custom class for the Sub Header (40px) */
+        /* 💡 NEW ADJUSTMENT: Custom class for the Sub Header (30px) */
         .sub-title {
-            font-size: 40px !important; /* REDUCED SIZE */
+            font-size: 30px !important; /* REDUCED SIZE */
             color: #333333 !important;
             margin-top: 0px;
             margin-bottom: 30px;
@@ -246,7 +246,7 @@ def generate_concise_summary(match_result, detailed_analysis, filename):
 # -----------------------------------------------------
 
 # Main Title and Subtitle 
-# 🚀 FINAL FIX: Using custom classes with reduced font sizing
+# 🚀 FINAL FIX: Using custom classes with subtle font sizing (48px / 30px)
 st.markdown("<div class='main-title'>AI Resume Screening Agent</div>", unsafe_allow_html=True) 
 st.markdown("<div class='sub-title'>Rank resumes based on job descriptions</div>", unsafe_allow_html=True) 
 
