@@ -126,15 +126,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ----------------------------
-# GOOGLE GEMINI CONFIG
+# GOOGLE GEMINI CONFIG - CLEANED
 # ----------------------------
-<<<<<<< HEAD
-# !! IMPORTANT: Replace "AIzaSyBYuTl7knQrJsFuT4uP_F6RgmB3EWLMZDc" with your actual Gemini API key. 
-client = genai.Client(api_key="AIzaSyBYuTl7knQrJsFuT4uP_F6RgmB3EWLMZDc")
-=======
-# !! IMPORTANT: Replace "PASTE_YOUR_GEMINI_API_HERE" with your actual Gemini API key. 
-client = genai.Client(api_key="PASTE_YOUR_GEMINI_API_HERE")
->>>>>>> 637397aaf40a48faff91750fdcf8964856f1d199
+# !! FIX: All Git conflict markers are removed here.
+# You MUST replace "YOUR_ACTUAL_NEW_API_KEY_HERE" with your actual, new Gemini API key.
+API_KEY = "YOUR_ACTUAL_NEW_API_KEY_HERE" 
+client = genai.Client(api_key=API_KEY)
+# ----------------------------
+
 
 # ----------------------------
 # FIXED FUNCTION: Extract text from MULTIPLE PDFs
@@ -146,7 +145,11 @@ def extract_text_from_pdf(uploaded_files):
         pdf_bytes = uploaded_file.read()
         pdf_stream = io.BytesIO(pdf_bytes)
 
-        pdf_reader = PyPDF2.PdfReader(pdf_stream)
+        try:
+            pdf_reader = PyPDF2.PdfReader(pdf_stream)
+        except Exception as e:
+            st.error(f"Error reading PDF file: {uploaded_file.name}. Please ensure it is a valid PDF. Details: {e}")
+            continue
 
         for page in pdf_reader.pages:
             content = page.extract_text()
@@ -251,7 +254,6 @@ def generate_concise_summary(match_result, detailed_analysis, filename):
 # -----------------------------------------------------
 
 # Main Title and Subtitle 
-# 🚀 FINAL FIX: Using custom classes with subtle font sizing (48px / 30px)
 st.markdown("<div class='main-title'>AI Resume Screening Agent</div>", unsafe_allow_html=True) 
 st.markdown("<div class='sub-title'>Rank resumes based on job descriptions</div>", unsafe_allow_html=True) 
 
@@ -292,6 +294,7 @@ if st.button("Analyze Match"):
         
         # --- Helper function to extract percentage ---
         def extract_percentage(text):
+            # Uses regex to find the first number followed by a percentage sign
             match = re.search(r'(\d+)%', text)
             if match:
                 return int(match.group(1))
@@ -302,10 +305,18 @@ if st.button("Analyze Match"):
             with st.spinner(f"Analyzing {uploaded_file.name}..."):
                 resume_text = extract_text_from_pdf([uploaded_file])
                 
+                # Check if text was successfully extracted
+                if not resume_text:
+                    st.warning(f"Could not extract text from {uploaded_file.name}. Skipping this file.")
+                    continue 
+
                 # Pass JD to the analysis function
-                analysis = analyze_resume(resume_text, jd_text) 
-                
-                match_result = match_resume_to_jd(resume_text, jd_text)
+                try:
+                    analysis = analyze_resume(resume_text, jd_text) 
+                    match_result = match_resume_to_jd(resume_text, jd_text)
+                except Exception as e:
+                    st.error(f"Error during AI analysis for {uploaded_file.name}. Please ensure your API key is correct and valid. Error: {e}")
+                    continue
 
                 results.append({
                     "filename": uploaded_file.name,
