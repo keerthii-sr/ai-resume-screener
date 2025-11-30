@@ -1,3 +1,7 @@
+<img width="1918" height="1020" alt="pic 1" src="https://github.com/user-attachments/assets/79b45106-6d2c-4e9c-b185-8ef84b1aaf9d" />
+<img width="1918" height="1017" alt="pic 2" src="https://github.com/user-attachments/assets/a1b5f4e2-14ba-413f-a1ca-28445560fcdf" />
+<img width="1918" height="992" alt="pic 3" src="https://github.com/user-attachments/assets/c5b6aae2-98fe-4afc-8fc5-8061687e4f3c" />
+<img width="1906" height="1022" alt="pic 4" src="https://github.com/user-attachments/assets/b123b751-f538-43cd-b97e-d3cbadcadbe1" />
 📄 AI Resume Screening Agent
 
 An intelligent resume-screening system built with Streamlit and powered by Google Gemini.
