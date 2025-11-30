@@ -7,7 +7,8 @@
 An intelligent resume-screening system built with Streamlit and powered by Google Gemini.
 It analyzes multiple candidate resumes, compares them against a Job Description (JD), generates insights, ranks candidates by relevance, and produces hiring recommendations.
 
-✨ Features
+✨ Features![flowchart resume screener](https://github.com/user-attachments/assets/8a0adedf-476d-480a-9d16-9a45f32b1531)
+
 
 Upload multiple PDF resumes at once
 
